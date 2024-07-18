@@ -2,13 +2,9 @@
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     e.preventDefault();
-    const targetId = this.getAttribute("href").substring(1);
-    const targetElement = document.getElementById(targetId);
-    if (targetElement) {
-      targetElement.scrollIntoView({
-        behavior: "smooth",
-      });
-    }
+    document.querySelector(this.getAttribute("href")).scrollIntoView({
+      behavior: "smooth",
+    });
   });
 });
 
@@ -21,17 +17,17 @@ document.addEventListener("DOMContentLoaded", function () {
     const message = document.querySelector("#message").value;
     let isValid = true;
 
-    if (name.trim() === "") {
+    if (name === "") {
       alert("Name is required");
       isValid = false;
     }
 
-    if (email.trim() === "") {
+    if (email === "") {
       alert("Email is required");
       isValid = false;
     }
 
-    if (message.trim() === "") {
+    if (message === "") {
       alert("Message is required");
       isValid = false;
     }
@@ -53,8 +49,6 @@ document.addEventListener("DOMContentLoaded", function () {
     image.addEventListener("click", function () {
       modal.style.display = "block";
       modalImg.src = this.src;
-      modalImg.alt = this.alt; // Set alt text for accessibility
-      modalImg.setAttribute("aria-describedby", "modal-caption"); // Example for adding aria-describedby
     });
   });
 
@@ -64,13 +58,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   window.addEventListener("click", function (e) {
     if (e.target === modal) {
-      modal.style.display = "none";
-    }
-  });
-
-  // Keyboard accessibility (optional)
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && modal.style.display === "block") {
       modal.style.display = "none";
     }
   });
@@ -98,12 +85,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // Fetch and Display GitHub Projects
 document.addEventListener("DOMContentLoaded", function () {
   fetch("https://api.github.com/users/Soumyadeep-Chakravarti/repos")
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      return response.json();
-    })
+    .then((response) => response.json())
     .then((data) => {
       const container = document.querySelector("#projects-container");
       data.forEach((repo) => {
@@ -111,14 +93,10 @@ document.addEventListener("DOMContentLoaded", function () {
         div.classList.add("project-item");
         div.innerHTML = `
           <h3><a href="${repo.html_url}" target="_blank">${repo.name}</a></h3>
-          <p>${repo.description || "No description provided"}</p>
+          <p>${repo.description}</p>
         `;
         container.appendChild(div);
       });
     })
-    .catch((error) => {
-      console.error("Error fetching GitHub repos:", error);
-      const container = document.querySelector("#projects-container");
-      container.innerHTML = "<p>Failed to fetch GitHub projects.</p>";
-    });
+    .catch((error) => console.error("Error fetching GitHub repos:", error));
 });
