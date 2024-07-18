@@ -1,6 +1,13 @@
+# _data/navigation.yml
+
 - name: Home
   link: /
+
 - name: About
   link: /pages/about.html
-- name: Blog
-  link: /pages/blog.html
+
+- name: Projects
+  link: /pages/projects.html
+
+- name: Contact
+  link: /pages/contact.html

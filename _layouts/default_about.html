@@ -3,20 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ page.title }}</title>
-    <link rel="stylesheet" href="/assets/css/about_styles.css" />
+    <title>{{ page.title }} - {{ site.title }}</title>
+    <link rel="stylesheet" href="/assets/css/styles.css" />
+
+    {% seo %}
   </head>
   <body>
     <header>
-      <img src="/assets/images/profile.jpg" alt="Profile Picture" class="profile-pic" />
-      <h1>{{ "Soumyadeep Chakravarti" }}</h1>
-      <p>Job Title</p>
+      <img
+        src= "/assets/images/profile.jpg"
+        alt="Profile Picture"
+        class="profile-pic"
+      />
+      <h1>{{ site.title }}</h1>
+      <p>{{ site.description }}</p>
       {% include navigation.html %}
     </header>
-    {{ content }}
+    <main>{{ content }}</main>
     <footer>
-      <p>Contact Information</p>
+      <p>&copy; {{ site.time | date: "%Y" }} {{ site.title }}</p>
     </footer>
-    <script src="./assets/js/script.js"></script>
+    <script src="/assets/js/script.js"></script>
   </body>
 </html>
