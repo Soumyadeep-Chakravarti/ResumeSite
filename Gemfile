@@ -4,7 +4,6 @@ gem 'base64', '0.2.0'
 gem 'webrick'
 gem 'jekyll' , '3.9.5'
 gem 'github-pages','231', group: :jekyll_plugins
-
 gem 'github-pages-health-check','1.18.2'
 gem 'html-pipeline'	,'2.14.3'
 gem 'jekyll-avatar','0.8.0'
