@@ -1,11 +1,11 @@
-title: Your Site Title
-email: your-email@example.com
+title: Soumyadeep Chakravarti's Resume
+email: soumyadeepsai1@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Your professional resume website.
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://Soumyadeep-Chakravarti.github.io" # the base hostname & protocol for your site
 twitter_username: yourusername
-github_username:  yourusername
+github_username: Soumyadeep-Chakravarti
 
 markdown: kramdown
 theme: minima
@@ -16,6 +16,28 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
+  - base64
+  - webrick
+  - github-pages
+  - github-pages-health-check
+  - html-pipeline
+  - jekyll-avatar
+  - jekyll-coffeescript
+  - jekyll-commonmark-ghpages
+  - jekyll-default-layout
+  - jekyll-gist
+  - jekyll-github-metadata
+  - jekyll-include-cache
+  - jekyll-mentions
+  - jekyll-optional-front-matter
+  - jekyll-readme-index
+  - jekyll-redirect-from
+  - jekyll-relative-links
+  - jekyll-remote-theme
+  - jekyll-swiss
+  - jekyll-titles-from-headings
+  - jemoji
+  - kramdown-parser-gfm
 
 paginate: 5
 paginate_path: "/page:num/"
@@ -43,3 +65,5 @@ exclude:
   - Gemfile.lock
   - node_modules
   - vendor
+  - .gitignore
+  - .jekyll-cache

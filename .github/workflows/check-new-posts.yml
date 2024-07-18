@@ -1,0 +1,38 @@
+# .github/workflows/check-new-posts.yml
+
+name: Check New Posts
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: "0 0 * * *" # Runs daily at midnight
+
+jobs:
+  check_new_posts:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.0"
+
+      - name: Install Bundler
+        run: gem install bundler
+
+      - name: Install dependencies
+        run: bundle install
+
+      - name: Check for new posts
+        run: |
+          if [ "$(git status --porcelain _posts)" != "" ]; then
+            echo "There are new posts in the _posts folder"
+            exit 1
+          else
+            echo "No new posts detected"
+          fi

@@ -92,9 +92,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const div = document.createElement("div");
         div.classList.add("project-item");
         div.innerHTML = `
-          <h3><a href="${repo.html_url}" target="_blank">${repo.name}</a></h3>
-          <p>${repo.description}</p>
-        `;
+                    <h3><a href="${repo.html_url}" target="_blank">${repo.name}</a></h3>
+                    <p>${repo.description}</p>
+                `;
         container.appendChild(div);
       });
     })

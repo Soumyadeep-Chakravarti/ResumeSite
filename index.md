@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Your Name's Resume"
+title: "Resume"
 ---
 
 <!-- GitHub Projects Section -->
