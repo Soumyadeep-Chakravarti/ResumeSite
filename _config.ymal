@@ -1,0 +1,44 @@
+title: Your Site Title
+email: your-email@example.com
+description: >- # this means to ignore newlines until "baseurl:"
+  Your professional resume website.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://yourusername.github.io" # the base hostname & protocol for your site
+twitter_username: yourusername
+github_username:  yourusername
+
+markdown: kramdown
+theme: minima
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-paginate
+  - jekyll-sitemap
+
+paginate: 5
+paginate_path: "/page:num/"
+
+sass:
+  sass_dir: assets/css
+
+collections:
+  posts:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: default_posts
+      author: Your Name
+
+permalink: /:categories/:year/:month/:day/:title.html
+
+# Exclude these files from the site
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
